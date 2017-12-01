@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /********************************************************************************************
  *                                                                                          *
@@ -17,28 +17,16 @@
  * @return {string}
  *
  * @example
- *   'aa', 'bb' => 'aabb'
- *   'aa',''    => 'aa'
- *   '',  'bb'  => 'bb'
+ *   "aa", "bb" => "aabb"
+ *   "aa",""    => "aa"
+ *   "",  "bb"  => "bb"
  */
 function concatenateStrings(value1, value2) {
-    throw new Error('Not implemented');
+    return value1.concat(value2);
 }
 
-
-/**
- * Returns the length of given string.
- *
- * @param {string} value
- * @return {number}
- *
- * @example
- *   'aaaaa' => 5
- *   'b'     => 1
- *   ''      => 0
- */
 function getStringLength(value) {
-    throw new Error('Not implemented');
+    return value.length;
 }
 
 /**
@@ -51,25 +39,25 @@ function getStringLength(value) {
  * @return {string}
  *
  * @example
- *   'John','Doe'      => 'Hello, John Doe!'
- *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
+ *   "John","Doe"      => "Hello, John Doe!"
+ *   "Chuck","Norris"  => "Hello, Chuck Norris!"
  */
 function getStringFromTemplate(firstName, lastName) {
-    throw new Error('Not implemented');
+    return "Hello, " + firstName + " " + lastName + "!";
 }
 
 /**
- * Extracts a name from template string 'Hello, First_Name Last_Name!'.
+ * Extracts a name from template string "Hello, First_Name Last_Name!".
  *
  * @param {string} value
  * @return {string}
  *
  * @example
- *   'Hello, John Doe!' => 'John Doe'
- *   'Hello, Chuck Norris!' => 'Chuck Norris'
+ *   "Hello, John Doe!" => "John Doe"
+ *   "Hello, Chuck Norris!" => "Chuck Norris"
  */
 function extractNameFromTemplate(value) {
-    throw new Error('Not implemented');
+    return (value.split(", ").pop()).replace("!", "");
 }
 
 
@@ -80,11 +68,11 @@ function extractNameFromTemplate(value) {
  * @return {string}
  *
  * @example
- *   'John Doe'  => 'J'
- *   'cat'       => 'c'
+ *   "John Doe"  => "J"
+ *   "cat"       => "c"
  */
 function getFirstChar(value) {
-    throw new Error('Not implemented');
+    return value.charAt(0);
 }
 
 /**
@@ -94,12 +82,12 @@ function getFirstChar(value) {
  * @return {string}
  *
  * @example
- *   '  Abracadabra'    => 'Abracadabra'
- *   'cat'              => 'cat'
- *   '\tHello, World! ' => 'Hello, World!'
+ *   "  Abracadabra"    => "Abracadabra"
+ *   "cat"              => "cat"
+ *   "\tHello, World! " => "Hello, World!"
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-    throw new Error('Not implemented');
+    return value.trim();
 }
 
 /**
@@ -110,11 +98,16 @@ function removeLeadingAndTrailingWhitespaces(value) {
  * @return {string}
  *
  * @example
- *   'A', 5  => 'AAAAA'
- *   'cat', 3 => 'catcatcat'
+ *   "A", 5  => "AAAAA"
+ *   "cat", 3 => "catcatcat"
  */
 function repeatString(value, count) {
-    throw new Error('Not implemented');
+    var tmp = value;
+    while(count>1){
+        tmp += value;
+        count--;
+    }
+    return tmp;
 }
 
 /**
@@ -125,12 +118,12 @@ function repeatString(value, count) {
  * @return {string}
  *
  * @example
- *   'To be or not to be', 'not'  => 'To be or to be'
- *   'I like legends', 'end' => 'I like legs',
- *   'ABABAB','BA' => 'ABAB'
+ *   "To be or not to be", "not"  => "To be or to be"
+ *   "I like legends", "end" => "I like legs",
+ *   "ABABAB","BA" => "ABAB"
  */
 function removeFirstOccurrences(str, value) {
-    throw new Error('Not implemented');
+    return str.replace(value, "");
 }
 
 /**
@@ -140,12 +133,13 @@ function removeFirstOccurrences(str, value) {
  * @return {string}
  *
  * @example
- *   '<div>' => 'div'
- *   '<span>' => 'span'
- *   '<a>' => 'a'
+ *   "<div>" => "div"
+ *   "<span>" => "span"
+ *   "<a>" => "a"
  */
 function unbracketTag(str) {
-    throw new Error('Not implemented');
+    var tmp = str.replace("<", "");
+    return tmp.replace(">", "");
 }
 
 
@@ -156,11 +150,11 @@ function unbracketTag(str) {
  * @return {string}
  *
  * @example
- *   'Thunderstruck' => 'THUNDERSTRUCK'
- *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+ *   "Thunderstruck" => "THUNDERSTRUCK"
+ *  "abcdefghijklmnopqrstuvwxyz" => "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
  */
 function convertToUpperCase(str) {
-    throw new Error('Not implemented');
+    return str.toUpperCase();
 }
 
 /**
@@ -170,11 +164,11 @@ function convertToUpperCase(str) {
  * @return {array}
  *
  * @example
- *   'angus.young@gmail.com;brian.johnson@hotmail.com;bon.scott@yahoo.com' => ['angus.young@gmail.com', 'brian.johnson@hotmail.com', 'bon.scott@yahoo.com']
- *   'info@gmail.com' => ['info@gmail.com']
+ *   "angus.young@gmail.com;brian.johnson@hotmail.com;bon.scott@yahoo.com" => ["angus.young@gmail.com", "brian.johnson@hotmail.com", "bon.scott@yahoo.com"]
+ *   "info@gmail.com" => ["info@gmail.com"]
  */
 function extractEmails(str) {
-    throw new Error('Not implemented');
+    return str.split(";");
 }
 
 /**
@@ -187,21 +181,50 @@ function extractEmails(str) {
  *
  * @example
  *
- *            '┌────┐\n'+
- *  (6,4) =>  '│    │\n'+
- *            '│    │\n'+
- *            '└────┘\n'
+ *            "┌────┐\n"+
+ *  (6,4) =>  "│    │\n"+
+ *            "│    │\n"+
+ *            "└────┘\n"
  *
- *  (2,2) =>  '┌┐\n'+
- *            '└┘\n'
+ *  (2,2) =>  "┌┐\n"+
+ *            "└┘\n"
  *
- *             '┌──────────┐\n'+
- *  (12,3) =>  '│          │\n'+
- *             '└──────────┘\n'
+ *             "┌──────────┐\n"+
+ *  (12,3) =>  "│          │\n"+
+ *             "└──────────┘\n"
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+    var rectangle = "";
+    for(var i = 0; i < height; i++){
+        for(var j = 0; j < width; j++){
+            if(i == 0)
+                if(j == 0)
+                    rectangle += "┌";
+                else if(j == width-1)
+                    rectangle += "┐";
+                else
+                    rectangle+="─";
+            else if( i == height-1){
+                if(j == 0)
+                    rectangle += "└";
+                else if(j == width-1)
+                    rectangle += "┘";
+                else
+                    rectangle+="─";
+            }
+            else { 
+                if(j == 0)
+                    rectangle += "│";
+                else if(j == width-1)
+                    rectangle += "│";
+                else
+                    rectangle+=" ";
+            }
+        }
+        rectangle += "\n";
+    }
+    return rectangle;
 }
 
 
@@ -214,14 +237,17 @@ function getRectangleString(width, height) {
  *
  * @example
  *
- *   'hello' => 'uryyb'
- *   'Why did the chicken cross the road?' => 'Jul qvq gur puvpxra pebff gur ebnq?'
- *   'Gb trg gb gur bgure fvqr!' => 'To get to the other side!'
- *   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
+ *   "hello" => "uryyb"                        Jul qvq gur puvpxra pebff gur ebnq?
+ *   "Why did the chicken cross the road?" => "Jul qvq gur puvpxra pebff gur ebnq?"
+ *   "Gb trg gb gur bgure fvqr!" => "To get to the other side!"
+ *   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" => "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
+    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    var reverse_alphabet = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+    
+    return str.split("").map(c => alphabet.indexOf(c) == -1 ? c : reverse_alphabet.charAt(alphabet.indexOf(c))).join("");
 }
 
 /**
@@ -234,11 +260,11 @@ function encodeToRot13(str) {
  *   isString(null) => false
  *   isString([]) => false
  *   isString({}) => false
- *   isString('test') => true
- *   isString(new String('test')) => true
+ *   isString("test") => true
+ *   isString(new String("test")) => true
  */
 function isString(value) {
-    throw new Error('Not implemented');
+    return typeof value === "string" || value instanceof String;
 }
 
 
@@ -247,10 +273,10 @@ function isString(value) {
  * 
  * Playing cards inittial deck inclides the cards in the following order:
  * 
- *  'A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
- *  'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
- *  'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
- *  'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'
+ *  "A♣","2♣","3♣","4♣","5♣","6♣","7♣","8♣","9♣","10♣","J♣","Q♣","K♣",
+ *  "A♦","2♦","3♦","4♦","5♦","6♦","7♦","8♦","9♦","10♦","J♦","Q♦","K♦",
+ *  "A♥","2♥","3♥","4♥","5♥","6♥","7♥","8♥","9♥","10♥","J♥","Q♥","K♥",
+ *  "A♠","2♠","3♠","4♠","5♠","6♠","7♠","8♠","9♠","10♠","J♠","Q♠","K♠"
  * 
  * (see https://en.wikipedia.org/wiki/Standard_52-card_deck)
  * Function returns the zero-based index of specified card in the initial deck above.
@@ -259,15 +285,20 @@ function isString(value) {
  * @return {number}
  *
  * @example
- *   'A♣' => 0
- *   '2♣' => 1 
- *   '3♣' => 2
+ *   "A♣" => 0
+ *   "2♣" => 1 
+ *   "3♣" => 2
  *     ...
- *   'Q♠' => 50
- *   'K♠' => 51
+ *   "Q♠" => 50
+ *   "K♠" => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+    var cards = ["A♣","2♣","3♣","4♣","5♣","6♣","7♣","8♣","9♣","10♣","J♣","Q♣","K♣",
+               "A♦","2♦","3♦","4♦","5♦","6♦","7♦","8♦","9♦","10♦","J♦","Q♦","K♦",
+               "A♥","2♥","3♥","4♥","5♥","6♥","7♥","8♥","9♥","10♥","J♥","Q♥","K♥",
+               "A♠","2♠","3♠","4♠","5♠","6♠","7♠","8♠","9♠","10♠","J♠","Q♠","K♠"]
+               
+    return cards.indexOf(value);
 }
 
 
